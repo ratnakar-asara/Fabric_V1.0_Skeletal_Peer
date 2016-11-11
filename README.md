@@ -60,9 +60,7 @@ Note - once we add the feature to replace system generated hash with user specif
 ```
 
 ### Send a invoke request (still in the Third terminal)
-CORE_PEER_COMMITTER_LEDGER_ORDERER=0.0.0.0:5151 peer chaincode invoke -n _chaincode-id_  -c '{"Args":["invoke","a","b","10"]}'
-
-where _chaincode-id_ is the ID collected from the `peer` log on the deploy command.
+CORE_PEER_COMMITTER_LEDGER_ORDERER=0.0.0.0:5151 peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
 
 The above should succeed and you should see activity in the `peer` and `orderer` terminals. The `invoke` command brings up the chaincode as shown by `docker ps` command.
 
