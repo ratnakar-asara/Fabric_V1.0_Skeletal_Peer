@@ -15,8 +15,8 @@ The skeletal environment modifies the original CLI interface to send `deploy` an
 ### Start the SOLO Orderer (First terminal)
 * vagrant ssh
 * cd $GOPATH/src/github.com/hyperledger/fabric/orderer
-* go build
-* ./orderer
+* make orderer
+* orderer
 
 ### Start the peer (Second terminal)
 * vagrant ssh
