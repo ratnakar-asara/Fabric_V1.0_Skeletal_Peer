@@ -1,4 +1,4 @@
-# V1.0 Skeletal Environment
+# Fabric V1.0 Skeletal Environment
 The V1.0 work is on its way (please see https://jira.hyperledger.org/browse/FAB-37 for details).
 
 The approach being taken is to have a skeletal implementation in with minimal component hookups to enable
