@@ -25,10 +25,6 @@ The skeletal environment modifies the original CLI interface to send `deploy` an
 * make peer
 * peer node start
 
-```
-The CORE_PEER_COMMITTER_LEDGER_ORDERER env var is needed to override the `orderer` property in fabric/peer/core.yaml.
-```
-
 At this point you should see activity on the `orderer` window that the peer is in communication with the orderer. **If not, STOP.**
 
 ### Send a deploy request (Third terminal)
@@ -37,27 +33,18 @@ At this point you should see activity on the `orderer` window that the peer is i
 
 Note the name of the chaincode is `mycc`.
 
+**NOTE 1**
 The above should succeed and you should see activity in the `peer` terminal. After about 10 seconds there should be activity in the `orderer` terminal as well (by default the `solo` orderer waits for about 10 seconds to gather more transactions before delivering to the peer for committing.)
 
-```
-NOTE - you will also see the following error message in the `peer` window that the chaincode went down:
+**NOTE 2**
+You will also see the following error message in the `peer` window that the chaincode went down:
 
+  ```
   Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+  ```
 
 This is OK as the endorser brings down the chaincode after deploy pending a successful commit.
-```
 
-Copy the chaincode ID from the `peer` logs. For example
-
-`d8f2ef95a72aa85b0f92580580176479fcd0874f6b0855ae21b98dcb926353d357e94cc80b5fb9b789d3a0acfdf143166b3bdc3e483feabeb4ab0b0a530b83a6`
-
-is the ID from the `peer` log snippet
-
-``18:22:52.813 [chaincode] deregisterHandler -> DEBU 0d7 Deregistered handler with key: d8f2ef95a72aa85b0f92580580176479fcd0874f6b0855ae21b98dcb926353d357e94cc80b5fb9b789d3a0acfdf143166b3bdc3e483feabeb4ab0b0a530b83a6``
-
-```
-Note - once we add the feature to replace system generated hash with user specified name for chaincode ID's this type of indirect means to discover chaincode IDs can be dispensed with
-```
 
 ### Send a invoke request (still in the Third terminal)
 peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
@@ -74,11 +61,10 @@ The `orderer` will then send the transaction to the `peer` for committing to the
 
 **NOTE - "Query" request has been disabled. However, "invoke" have been enhanced to collect the return value from the chaincode.**
 
-```
-Excercise
 
-The `Invoke` method of the chaincode can be modified to return state values (chaincode_example02 returns nil). This can be a stronger indication of the commit at work - multiple invokes should show previously committed ledger values returned in ProposalResult.
+**Excercise**
 
+The `Invoke` method of the chaincode can be modified to return state values (`chaincode_example02` returns nil). This can be a stronger indication of the commit at work - multiple invokes should show previously committed ledger values returned in ProposalResult.
 
 Hint : compare `chaincode_example02` and `invokereturnsvalue`
 ```
