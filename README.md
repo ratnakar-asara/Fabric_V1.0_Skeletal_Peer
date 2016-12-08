@@ -78,4 +78,7 @@ The `orderer` will then send the transaction to the `peer` for committing to the
 Excercise
 
 The `Invoke` method of the chaincode can be modified to return state values (chaincode_example02 returns nil). This can be a stronger indication of the commit at work - multiple invokes should show previously committed ledger values returned in ProposalResult.
+
+
+Hint : compare `chaincode_example02` and `invokereturnsvalue`
 ```
