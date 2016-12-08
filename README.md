@@ -23,7 +23,7 @@ The skeletal environment modifies the original CLI interface to send `deploy` an
 * rm /var/hyperledger/*
 * cd $GOPATH/src/github.com/hyperledger/fabric
 * make peer
-* CORE_PEER_COMMITTER_LEDGER_ORDERER=0.0.0.0:5151 peer node start
+* peer node start
 
 ```
 The CORE_PEER_COMMITTER_LEDGER_ORDERER env var is needed to override the `orderer` property in fabric/peer/core.yaml.
@@ -33,7 +33,7 @@ At this point you should see activity on the `orderer` window that the peer is i
 
 ### Send a deploy request (Third terminal)
 * vagrant ssh
-* CORE_PEER_COMMITTER_LEDGER_ORDERER=0.0.0.0:5151 peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}'
+* peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}'
 
 Note the name of the chaincode is `mycc`.
 
@@ -60,7 +60,7 @@ Note - once we add the feature to replace system generated hash with user specif
 ```
 
 ### Send a invoke request (still in the Third terminal)
-CORE_PEER_COMMITTER_LEDGER_ORDERER=0.0.0.0:5151 peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
+peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
 
 The above should succeed and you should see activity in the `peer` and `orderer` terminals. The `invoke` command brings up the chaincode as shown by `docker ps` command.
 
