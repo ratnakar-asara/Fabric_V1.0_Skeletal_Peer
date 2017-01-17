@@ -53,11 +53,3 @@ The above should succeed and you should see activity in the `peer` and `orderer`
 
 ### Send a query request (still in the Third terminal)
 peer chaincode query -n mycc -c '{"Args":["query","a"]}'
-
-## Conclusion
-The CLI has been instrumented to
-
-* convert the user request to a `Proposal` and send it to the `peer`
-* receive a `ProposalResult` from the `peer`, convert it to a `Transaction` and send it to the `orderer`
-
-The `orderer` will then send the transaction to the `peer` for committing to the ledger.
