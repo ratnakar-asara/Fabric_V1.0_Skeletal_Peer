@@ -51,6 +51,9 @@ peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
 
 The above should succeed and you should see activity in the `peer` and `orderer` terminals. The `invoke` command brings up the chaincode as shown by `docker ps` command.
 
+### Send a query request (still in the Third terminal)
+peer chaincode query -n mycc -c '{"Args":["query","a"]}'
+
 ## Conclusion
 The CLI has been instrumented to
 
