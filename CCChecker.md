@@ -21,7 +21,7 @@ The concurrency enablement was tested with the "ccchecker".
 
 #### vagrant window 1 - start orderer
 
-		       orderer
+	orderer
 
 #### vagrant window 1 - start peer
 
@@ -30,20 +30,20 @@ The concurrency enablement was tested with the "ccchecker".
 
 ####vagrant window 3 - bring up chaincode for test
 
-	        //deploy the chaincode used by ccchecker out of the box
-	        peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/ccchecker/chaincodes/newkeyperinvoke -c '{"Args":[""]}'
+	//deploy the chaincode used by ccchecker out of the box
+	peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/ccchecker/chaincodes/newkeyperinvoke -c '{"Args":[""]}'
 	        
-	        //wait for commit say for about 10 secs and then issue a query to bring the CC up
-	        peer chaincode query -n mycc -c '{"Args":["get","a"]}'
+	//wait for commit say for about 10 secs and then issue a query to bring the CC up
+	peer chaincode query -n mycc -c '{"Args":["get","a"]}'
 	    
-	        //verify the chaincode is up
-	        docker ps
+	//verify the chaincode is up
+	docker ps
 	
 
 ####vagrant window 4 - run test
 
-	        cd examples/ccchecker
-	        go build
-	        ./ccchecker
+	cd examples/ccchecker
+	go build
+	./ccchecker
 	
 The above reads from `ccchecker.json` and executes tests concurrently.
