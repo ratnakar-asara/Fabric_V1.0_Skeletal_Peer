@@ -23,13 +23,14 @@ The skeletal environment modifies the original CLI interface to send `deploy` an
 * rm /var/hyperledger/*
 * cd $GOPATH/src/github.com/hyperledger/fabric
 * make peer
-* peer node start
+* CORE_PEER_MSPCONFIGPATH=./msp/sampleconfig peer node start --peer-defaultchain=true
 
 At this point you should see activity on the `orderer` window that the peer is in communication with the orderer. **If not, STOP.**
 
 ### Send a deploy request (Third terminal)
 * vagrant ssh
-* peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}'
+* cd $GOPATH/src/github.com/hyperledger/fabric
+* CORE_PEER_MSPCONFIGPATH=./msp/sampleconfig peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}'
 
 Note the name of the chaincode is `mycc`.
 
@@ -47,9 +48,9 @@ This is OK as the endorser brings down the chaincode after deploy pending a succ
 
 
 ### Send a invoke request (still in the Third terminal)
-peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
+CORE_PEER_MSPCONFIGPATH=./msp/sampleconfig peer chaincode invoke -n mycc  -c '{"Args":["invoke","a","b","10"]}'
 
 The above should succeed and you should see activity in the `peer` and `orderer` terminals. The `invoke` command brings up the chaincode as shown by `docker ps` command.
 
 ### Send a query request (still in the Third terminal)
-peer chaincode query -n mycc -c '{"Args":["query","a"]}'
+CORE_PEER_MSPCONFIGPATH=./msp/sampleconfigpeer chaincode query -n mycc -c '{"Args":["query","a"]}'
