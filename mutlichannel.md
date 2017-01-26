@@ -118,7 +118,7 @@ your terminal:
 ```
 In the above shell execute the create command:
 ```
-CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:5005 peer channel create -c myc1
+CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050 peer channel create -c myc1
 ```
 This will create a channel genesis block file `myc1.block` to issue `join` commands with.
 
@@ -128,7 +128,7 @@ the genesis block - `myc1.block` - to your peer.  You will receive a 200 respons
 upon a successful join.
 
 ```
-CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:5005 CORE_PEER_ADDRESS=peer0:7051 peer channel join -b myc1.block
+CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050 CORE_PEER_ADDRESS=peer0:7051 peer channel join -b myc1.block
 ```
 
 ### Use the channel to deploy and invoke chaincodes
@@ -136,18 +136,18 @@ Run the deploy command.  This command is deploying a chaincode named `mycc` to
 `peer0` on the Channel ID `myc1`.  The constructor message is initializing `a` and
 `b` with values of 100 and 200 respectively.
 ```
-CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:5005 peer chaincode deploy -C myc1 -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}'
+CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050 peer chaincode deploy -C myc1 -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c '{"Args":["init","a","100","b","200"]}'
 ```
 
 Run the invoke command.  This invocation is moving 10 units from `a` to `b`.
 ```
-CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:5005 peer chaincode invoke -C myc1 -n mycc -c '{"Args":["invoke","a","b","10"]}'
+CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050 peer chaincode invoke -C myc1 -n mycc -c '{"Args":["invoke","a","b","10"]}'
 ```
 
 Run the query command.  The invocation transferred 10 units from `a` to `b`, therefore
 a query against `a` should return the value 90.
 ```
-CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:5005 peer chaincode query -C myc1 -n mycc -c '{"Args":["query","a"]}'
+CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050 peer chaincode query -C myc1 -n mycc -c '{"Args":["query","a"]}'
 ```
 You can issue an `exit` command at any time to exit the cli container.  
 
