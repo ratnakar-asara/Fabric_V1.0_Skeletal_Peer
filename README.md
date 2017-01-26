@@ -54,3 +54,6 @@ The above should succeed and you should see activity in the `peer` and `orderer`
 
 ### Send a query request (still in the Third terminal)
 CORE_PEER_MSPCONFIGPATH=./msp/sampleconfig peer chaincode query -n mycc -c '{"Args":["query","a"]}'
+
+##Multichannel setup
+Follow the instructions [here](https://github.com/hyperledger/fabric/blob/master/docs/channel-setup.md) for multichannel setup.
