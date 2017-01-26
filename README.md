@@ -53,4 +53,4 @@ CORE_PEER_MSPCONFIGPATH=./msp/sampleconfig peer chaincode invoke -n mycc  -c '{"
 The above should succeed and you should see activity in the `peer` and `orderer` terminals. The `invoke` command brings up the chaincode as shown by `docker ps` command.
 
 ### Send a query request (still in the Third terminal)
-CORE_PEER_MSPCONFIGPATH=./msp/sampleconfigpeer chaincode query -n mycc -c '{"Args":["query","a"]}'
+CORE_PEER_MSPCONFIGPATH=./msp/sampleconfig peer chaincode query -n mycc -c '{"Args":["query","a"]}'
