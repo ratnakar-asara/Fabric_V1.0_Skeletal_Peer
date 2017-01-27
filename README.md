@@ -14,7 +14,7 @@ The skeletal environment modifies the original CLI interface to send `deploy` an
 
 ### Start the SOLO Orderer (First terminal)
 * vagrant ssh
-* cd $GOPATH/src/github.com/hyperledger/fabric/orderer
+* cd $GOPATH/src/github.com/hyperledger/fabric
 * make orderer
 * orderer
 
