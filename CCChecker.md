@@ -10,8 +10,9 @@ This CR enables concurrency basically by removing the FSM states that
     
 The CR also has a "Chaincode Checker" program which has the potential for
     much bigger things
-       . the tooling test their chaincodes for consistency
-       . the tooling for stressing the fabric
+    
+* the tooling test their chaincodes for consistency
+* the tooling for stressing the fabric
     
 The concurrency enablement was tested with the "ccchecker".
     
