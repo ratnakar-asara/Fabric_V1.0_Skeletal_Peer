@@ -14,9 +14,9 @@ The CR also has a "Chaincode Checker" program which has the potential for
 * the tooling test their chaincodes for consistency
 * the tooling for stressing the fabric
     
-The concurrency enablement was tested with the "ccchecker".
+The concurrency enablement was tested with the **ccchecker**.
     
-"ccchecker" comes with a sample "newkeyperinvoke" chaincode that should
+**ccchecker** comes with a sample **newkeyperinvoke** chaincode that should
     NEVER fail ledger consistency checks. To test simply follow these steps
 
 
