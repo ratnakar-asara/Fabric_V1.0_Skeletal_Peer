@@ -31,12 +31,12 @@ The concurrency enablement was tested with the **ccchecker**.
 
 #### vagrant window 3 - bring up chaincode for test
 
-	//deploy the chaincode used by ccchecker out of the box
-	peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/ccchecker/chaincodes/newkeyperinvoke -c '{"Args":[""]}'
-	        
-	//wait for commit say for about 10 secs and then issue a query to bring the CC up
-	peer chaincode query -n mycc -c '{"Args":["get","a"]}'
-	    
+	// Install newkeyperinvoke chaincode
+	peer chaincode install -n mycc -v 1 -p github.com/hyperledger/fabric/examples/ccchecker/chaincodes/newkeyperinvoke 
+
+	// Instantiate newkeyperinvoke chaincode
+	peer chaincode instantiate -o 127.0.0.1:7050 -n mycc -v 1 -c '{"Args":[""]}'
+        
 	//verify the chaincode is up
 	docker ps
 	
