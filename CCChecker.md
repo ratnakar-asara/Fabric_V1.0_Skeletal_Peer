@@ -1,4 +1,4 @@
-####Copied the below content from the JIRA [FAB-1475](https://jira.hyperledger.org/browse/FAB-1475) and Gerrit [3563](https://gerrit.hyperledger.org/r/#/c/3563/)
+#### Copied the below content from the JIRA [FAB-1475](https://jira.hyperledger.org/browse/FAB-1475) and Gerrit [3563](https://gerrit.hyperledger.org/r/#/c/3563/)
 
  With pre-consensus simulation, multiple chains and relaxation by the ledger
     to simulate versions of chaincode state concurrently, we can now allow
@@ -28,7 +28,7 @@ The concurrency enablement was tested with the "ccchecker".
 	peer node start
 
 
-####vagrant window 3 - bring up chaincode for test
+#### vagrant window 3 - bring up chaincode for test
 
 	//deploy the chaincode used by ccchecker out of the box
 	peer chaincode deploy -n mycc -p github.com/hyperledger/fabric/examples/ccchecker/chaincodes/newkeyperinvoke -c '{"Args":[""]}'
@@ -40,7 +40,7 @@ The concurrency enablement was tested with the "ccchecker".
 	docker ps
 	
 
-####vagrant window 4 - run test
+#### vagrant window 4 - run test
 
 	cd examples/ccchecker
 	go build
