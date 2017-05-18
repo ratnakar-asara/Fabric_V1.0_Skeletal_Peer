@@ -24,7 +24,7 @@ The concurrency enablement was tested with the **ccchecker**.
 
 	orderer
 
-#### vagrant window 1 - start peer
+#### vagrant window 2 - start peer
 
 	peer node start
 
