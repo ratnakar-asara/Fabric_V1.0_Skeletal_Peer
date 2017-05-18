@@ -26,7 +26,7 @@ The concurrency enablement was tested with the **ccchecker**.
 
 #### vagrant window 2 - start peer
 
-	peer node start
+	peer node start -o 127.0.0.1:7050 
 
 
 #### vagrant window 3 - bring up chaincode for test
